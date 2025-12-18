@@ -1472,9 +1472,6 @@
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-                        <excludes>
-                            <exclude>**/TestSyncTableOfExternalCatalog.java</exclude>
-                        </excludes>
                     </configuration>
                 </plugin>
                 <plugin>
