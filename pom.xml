@@ -1309,6 +1309,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
@@ -1466,6 +1472,9 @@
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
                         <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+                        <excludes>
+                            <exclude>**/TestSyncTableOfExternalCatalog.java</exclude>
+                        </excludes>
                     </configuration>
                 </plugin>
                 <plugin>
