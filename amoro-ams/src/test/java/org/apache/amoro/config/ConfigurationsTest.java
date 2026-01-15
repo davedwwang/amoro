@@ -89,7 +89,7 @@ public class ConfigurationsTest {
     configuration = ConfigHelpers.createConfiguration(properties);
     durationInMillis =
         configuration.getDurationInMillis(AmoroManagementConf.OPTIMIZER_TASK_EXECUTE_TIMEOUT);
-    Assertions.assertEquals(Long.MAX_VALUE / 1000000, durationInMillis);
+    Assertions.assertEquals(Integer.MAX_VALUE * 1000L, durationInMillis);
 
     properties.put(AmoroManagementConf.OPTIMIZER_TASK_EXECUTE_TIMEOUT.key(), Long.MAX_VALUE + "m");
     final Configurations conf1 = ConfigHelpers.createConfiguration(properties);
