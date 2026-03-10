@@ -16,15 +16,19 @@
  * limitations under the License.
  */
 
-package org.apache.amoro.server.table;
+package org.apache.amoro.server;
 
-import org.apache.amoro.server.manager.AbstractPluginManager;
-import org.apache.amoro.table.TableRuntimeFactory;
+import org.apache.amoro.ActivePlugin;
+import org.apache.amoro.config.Configurations;
+import org.apache.amoro.server.catalog.CatalogManager;
+import org.apache.amoro.server.table.TableManager;
 
-public class TableRuntimeFactoryManager extends AbstractPluginManager<TableRuntimeFactory> {
-  public static final String PLUGIN_CATEGORY = "table-runtime-factories";
+public interface RestExtensionFactory extends ActivePlugin {
+  RestExtensionFactory withServiceConfig(Configurations serviceConfig);
 
-  public TableRuntimeFactoryManager() {
-    super(PLUGIN_CATEGORY);
-  }
+  RestExtensionFactory withCatalogManager(CatalogManager catalogManager);
+
+  RestExtensionFactory withTableManager(TableManager tableManager);
+
+  RestExtension build();
 }

@@ -18,16 +18,21 @@
 
 package org.apache.amoro.table;
 
-import org.apache.amoro.ActivePlugin;
 import org.apache.amoro.ServerTableIdentifier;
 import org.apache.amoro.TableRuntime;
+import org.apache.amoro.process.ActionCoordinator;
+import org.apache.amoro.process.ProcessFactory;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 /** Table runtime factory. */
-public interface TableRuntimeFactory extends ActivePlugin {
+public interface TableRuntimeFactory {
+
+  List<ActionCoordinator> supportedCoordinators();
+
+  void initialize(List<ProcessFactory> factories);
 
   Optional<TableRuntimeCreator> accept(
       ServerTableIdentifier tableIdentifier, Map<String, String> tableProperties);
